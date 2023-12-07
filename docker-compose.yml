@@ -2,16 +2,10 @@ version: '3.9'
 
 services:
   db:
-    image: postgres:13-alpine
+    image: yourusername/yourimagename:tag
     environment:
       POSTGRES_DB: ${DB_NAME:-devdb}
       POSTGRES_USER: ${DB_USER:-devuser}
       POSTGRES_PASSWORD: ${DB_PASS:-changeme}
     ports:
       - "5432:5432"
-    volumes:
-    #   - db-data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-volumes:
-  db-data:
